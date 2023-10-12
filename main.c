@@ -1,25 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int sumTwo(int a,int b) {
-	int c=a+b;
-    return c;
+int factorial(int x) {
+	int y=1,i=1;
+	if (x==1)
+		return 1;
+	else{
+		for(i=1;i<=x;i++)
+		y*=i;
+	}
+	return y;
 }
 
-int square(int n){
-	return n*n;
-}
-int get_max(int x,int y){
+int sub(int x,int y){
 	if(x>y)
-		return x;
+		return x-y;
 	else
-		return y;
+		return y-x;
 }
-int main(void){
-	int a=2,b=3,n=4,x=4,y=7;
-	printf("sumTwo %d\n",sumTwo(a,b));
-	printf("square %d\n",square(n));
-	printf("get_max %d\n",get_max(x,y));
+int comb(int n,int r){
+	return factorial(n)/(factorial(sub(n,r))*factorial(r));
+}
+int main(){
+	
+	int n,r;
+	scanf("%d,%d",&n,&r);
+	printf("n combination r %d\n",comb(n,r));
     system("PAUSE");   
     return 0;
 }
